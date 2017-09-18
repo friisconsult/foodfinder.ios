@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>api_key</key>
+	<string>Agrajag</string>
+	<key>api_url</key>
+	<string>https://foodfinderapi.azurewebsites.net/api</string>
 </dict>
 </plist>

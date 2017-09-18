@@ -15,6 +15,9 @@
 		DA9DE2421F704F5100C1061B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9DE2401F704F5100C1061B /* LaunchScreen.storyboard */; };
 		DA9DE24D1F704F5100C1061B /* Food_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE24C1F704F5100C1061B /* Food_FinderTests.swift */; };
 		DA9DE2581F704F5100C1061B /* Food_FinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE2571F704F5100C1061B /* Food_FinderUITests.swift */; };
+		DA9DE2671F70502400C1061B /* VenuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE2661F70502400C1061B /* VenuesTableViewController.swift */; };
+		DA9DE26B1F70504500C1061B /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE26A1F70504500C1061B /* Cloud.swift */; };
+		DA9DE26D1F7055F100C1061B /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE26C1F7055F100C1061B /* Venue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		DA9DE2531F704F5100C1061B /* Food FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9DE2571F704F5100C1061B /* Food_FinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food_FinderUITests.swift; sourceTree = "<group>"; };
 		DA9DE2591F704F5100C1061B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA9DE2661F70502400C1061B /* VenuesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesTableViewController.swift; sourceTree = "<group>"; };
+		DA9DE26A1F70504500C1061B /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		DA9DE26C1F7055F100C1061B /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,15 @@
 		DA9DE2331F704F5100C1061B /* Food Finder */ = {
 			isa = PBXGroup;
 			children = (
+				DA9DE2691F70503800C1061B /* Cloud */,
+				DA9DE2681F70503300C1061B /* Model */,
+				DA9DE2651F70500700C1061B /* Venues */,
 				DA9DE2341F704F5100C1061B /* AppDelegate.swift */,
 				DA9DE2361F704F5100C1061B /* ViewController.swift */,
 				DA9DE2381F704F5100C1061B /* Main.storyboard */,
 				DA9DE23E1F704F5100C1061B /* Assets.xcassets */,
 				DA9DE2401F704F5100C1061B /* LaunchScreen.storyboard */,
 				DA9DE2431F704F5100C1061B /* Info.plist */,
-				DA9DE23B1F704F5100C1061B /* Food_Finder.xcdatamodeld */,
 			);
 			path = "Food Finder";
 			sourceTree = "<group>";
@@ -126,6 +134,31 @@
 				DA9DE2591F704F5100C1061B /* Info.plist */,
 			);
 			path = "Food FinderUITests";
+			sourceTree = "<group>";
+		};
+		DA9DE2651F70500700C1061B /* Venues */ = {
+			isa = PBXGroup;
+			children = (
+				DA9DE2661F70502400C1061B /* VenuesTableViewController.swift */,
+			);
+			path = Venues;
+			sourceTree = "<group>";
+		};
+		DA9DE2681F70503300C1061B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA9DE23B1F704F5100C1061B /* Food_Finder.xcdatamodeld */,
+				DA9DE26C1F7055F100C1061B /* Venue.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA9DE2691F70503800C1061B /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				DA9DE26A1F70504500C1061B /* Cloud.swift */,
+			);
+			path = Cloud;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +295,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9DE26B1F70504500C1061B /* Cloud.swift in Sources */,
+				DA9DE26D1F7055F100C1061B /* Venue.swift in Sources */,
 				DA9DE23D1F704F5100C1061B /* Food_Finder.xcdatamodeld in Sources */,
 				DA9DE2371F704F5100C1061B /* ViewController.swift in Sources */,
 				DA9DE2351F704F5100C1061B /* AppDelegate.swift in Sources */,
+				DA9DE2671F70502400C1061B /* VenuesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -418,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -434,7 +470,7 @@
 				DEVELOPMENT_TEAM = S4BJCS5AXT;
 				INFOPLIST_FILE = "Food Finder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.friisconsult.Food-Finder";
+				PRODUCT_BUNDLE_IDENTIFIER = com.friisconsult.foodfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -449,7 +485,7 @@
 				DEVELOPMENT_TEAM = S4BJCS5AXT;
 				INFOPLIST_FILE = "Food Finder/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.friisconsult.Food-Finder";
+				PRODUCT_BUNDLE_IDENTIFIER = com.friisconsult.foodfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
