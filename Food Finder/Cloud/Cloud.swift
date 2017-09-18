@@ -84,26 +84,26 @@ class Cloud {
                 self.persistentContainer.performBackgroundTask({ (context) in
                     
                     for codable in venuesCodable {
-                        debugPrint(codable)
+                        var venue = Venue.find(id: codable.id, context: context)
+                        if venue == nil {
+                            venue = Venue(context: context)
+                        }
+                        
+                        venue?.codable = codable
+                    }
+                    
+                    do {
+                        try context.save()
+                    } catch {
+                        assertionFailure(error.localizedDescription)
                     }
                 })
-                
-                
-                
-            
             } catch {
                 assertionFailure(error.localizedDescription)
             }
-            
-            
-            
-            
         }
         
         dataTask.resume()
-        
-        
-        
     }
     
 }

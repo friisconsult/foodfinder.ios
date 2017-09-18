@@ -9,7 +9,24 @@
 import UIKit
 import CoreData
 
-class VenuesTableViewController: UITableViewController {
+class VenuesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    lazy var fetchedResultsController:NSFetchedResultsController<Venue> = {
+        let fetchRequest:NSFetchRequest<Venue> = Venue.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key:"title", ascending:true)]
+        
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: (Cloud.shared.persistentContainer.viewContext), sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            assertionFailure(error.localizedDescription)
+        }
+        
+        
+        return fetchedResultsController
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,23 +47,27 @@ class VenuesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Venue cell", for: indexPath)
+        let venue = fetchedResultsController.object(at: indexPath)
+        
+        cell.textLabel?.text = venue.title
+        cell.detailTextLabel?.text = venue.detail
+        
         // Configure the cell...
 
         return cell
     }
-    */
+  
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,5 +113,18 @@ class VenuesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+        
+        tableView.reloadData()
+    }
 
+    
+    
+    
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
 }
