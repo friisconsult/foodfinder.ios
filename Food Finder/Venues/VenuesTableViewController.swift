@@ -30,6 +30,8 @@ class VenuesTableViewController: UITableViewController, NSFetchedResultsControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+        title = NSLocalizedString("Food finder", comment: "Food finder - title")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -104,27 +106,74 @@ class VenuesTableViewController: UITableViewController, NSFetchedResultsControll
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? UITableViewCell,
+            let index = tableView.indexPath(for: cell),
+            let venueDetailTableViewController = segue.destination as? VenueDetailTableViewController {
+            let venue = fetchedResultsController.object(at: index)
+            // TODO: check if venue have data, else update
+            if venue.menuItems?.count == 0 {
+                Cloud.shared.downloadDetail(venue: venue)
+            }
+            venueDetailTableViewController.venue = venue
+        }
+        
+        
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
-        
-        tableView.reloadData()
+        debugPrint("update table")
+
     }
 
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet([sectionIndex]), with: .automatic)
+            
+        case .update:
+            tableView.reloadSections(IndexSet([sectionIndex]), with: .automatic)
+            
+        case .delete:
+            tableView.deleteSections(IndexSet([sectionIndex]), with: .automatic)
+            
+        default:
+            tableView.reloadData()
+        }
+    }
     
-    
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+            
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
+            
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        }
+    }
     
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+        debugPrint("update table")
+
     }
 }

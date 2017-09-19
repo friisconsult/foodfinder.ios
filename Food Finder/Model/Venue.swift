@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MapKit
 
 struct VenueCodable:Codable {
     let id:UUID
@@ -29,11 +30,13 @@ struct VenueCodable:Codable {
     let latitude:Double
     let longitude:Double
     let priceLevel:Double
+    let menuItems:[MenuItemCodable]?
+    let reviews:[ReviewCodable]?
 }
 
-extension Venue {
-    
 
+
+extension Venue : MKAnnotation {
     var codable:VenueCodable {
         get {
             let ID = UUID(uuidString: id!)!
@@ -54,7 +57,9 @@ extension Venue {
                                 email: email,
                                 phone: phone,
                                 latitude: latitude, longitude: longitude,
-                                priceLevel: priceLevel)
+                                priceLevel: priceLevel,
+                                menuItems:[],
+                                reviews:[])
         }
         set {
             id = newValue.id.uuidString
@@ -75,6 +80,10 @@ extension Venue {
             longitude = newValue.longitude
             priceLevel = newValue.priceLevel
         }
+    }
+    
+    public var coordinate:CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
     class func find(predicate:NSPredicate = NSPredicate(format:"TRUEPREDICATE"), context:NSManagedObjectContext) -> [Venue] {

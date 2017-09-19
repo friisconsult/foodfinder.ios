@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA63B57A1F70FF3900FBEE13 /* VenueDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63B5791F70FF3900FBEE13 /* VenueDetailTableViewController.swift */; };
+		DA63B57C1F71075E00FBEE13 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63B57B1F71075E00FBEE13 /* MenuItem.swift */; };
+		DA63B57E1F71076700FBEE13 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63B57D1F71076700FBEE13 /* Review.swift */; };
+		DA63B5811F711B5700FBEE13 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA63B5801F711B5700FBEE13 /* MapKit.framework */; };
+		DA63B5841F711C6200FBEE13 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63B5831F711C6200FBEE13 /* MapViewController.swift */; };
 		DA9DE2351F704F5100C1061B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE2341F704F5100C1061B /* AppDelegate.swift */; };
 		DA9DE2371F704F5100C1061B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9DE2361F704F5100C1061B /* ViewController.swift */; };
 		DA9DE23A1F704F5100C1061B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9DE2381F704F5100C1061B /* Main.storyboard */; };
@@ -38,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA63B5791F70FF3900FBEE13 /* VenueDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailTableViewController.swift; sourceTree = "<group>"; };
+		DA63B57B1F71075E00FBEE13 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		DA63B57D1F71076700FBEE13 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		DA63B5801F711B5700FBEE13 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DA63B5831F711C6200FBEE13 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DA9DE2311F704F5100C1061B /* Food Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9DE2341F704F5100C1061B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9DE2361F704F5100C1061B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA63B5811F711B5700FBEE13 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA63B57F1F711B5700FBEE13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA63B5801F711B5700FBEE13 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA63B5821F711C4600FBEE13 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				DA63B5831F711C6200FBEE13 /* MapViewController.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		DA9DE2281F704F5000C1061B = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +116,7 @@
 				DA9DE24B1F704F5100C1061B /* Food FinderTests */,
 				DA9DE2561F704F5100C1061B /* Food FinderUITests */,
 				DA9DE2321F704F5100C1061B /* Products */,
+				DA63B57F1F711B5700FBEE13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +133,7 @@
 		DA9DE2331F704F5100C1061B /* Food Finder */ = {
 			isa = PBXGroup;
 			children = (
+				DA63B5821F711C4600FBEE13 /* Maps */,
 				DA9DE2691F70503800C1061B /* Cloud */,
 				DA9DE2681F70503300C1061B /* Model */,
 				DA9DE2651F70500700C1061B /* Venues */,
@@ -140,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				DA9DE2661F70502400C1061B /* VenuesTableViewController.swift */,
+				DA63B5791F70FF3900FBEE13 /* VenueDetailTableViewController.swift */,
 			);
 			path = Venues;
 			sourceTree = "<group>";
@@ -149,6 +179,8 @@
 			children = (
 				DA9DE23B1F704F5100C1061B /* Food_Finder.xcdatamodeld */,
 				DA9DE26C1F7055F100C1061B /* Venue.swift */,
+				DA63B57B1F71075E00FBEE13 /* MenuItem.swift */,
+				DA63B57D1F71076700FBEE13 /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +262,11 @@
 					DA9DE2301F704F5000C1061B = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					DA9DE2471F704F5100C1061B = {
 						CreatedOnToolsVersion = 9.0;
@@ -297,10 +334,14 @@
 			files = (
 				DA9DE26B1F70504500C1061B /* Cloud.swift in Sources */,
 				DA9DE26D1F7055F100C1061B /* Venue.swift in Sources */,
+				DA63B57E1F71076700FBEE13 /* Review.swift in Sources */,
+				DA63B5841F711C6200FBEE13 /* MapViewController.swift in Sources */,
 				DA9DE23D1F704F5100C1061B /* Food_Finder.xcdatamodeld in Sources */,
 				DA9DE2371F704F5100C1061B /* ViewController.swift in Sources */,
 				DA9DE2351F704F5100C1061B /* AppDelegate.swift in Sources */,
+				DA63B57C1F71075E00FBEE13 /* MenuItem.swift in Sources */,
 				DA9DE2671F70502400C1061B /* VenuesTableViewController.swift in Sources */,
+				DA63B57A1F70FF3900FBEE13 /* VenueDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
